@@ -63,7 +63,7 @@ func TestIfRangesOverlapAtAll(SingleElfPair []string) bool {
 	RangeTwoHigher, _ := strconv.Atoi(RangeTwo[1])
 
 	if RangeOneHigher >= RangeTwoLower && RangeTwoHigher >= RangeOneLower {
-		fmt.Printf("Ranges overlap:   Range 1: %v --- Range 2: %v \n", RangeOne, RangeTwo)
+		// fmt.Printf("Ranges overlap:   Range 1: %v --- Range 2: %v \n", RangeOne, RangeTwo)
 		return true
 	} else {
 		return false
