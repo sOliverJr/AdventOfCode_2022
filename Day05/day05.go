@@ -77,6 +77,23 @@ func executeAnweisung(currentArrangement []stack, anweisung rearrangement) []sta
 		newStackAdded := appendStack(currentArrangement[anweisung.to-1], crate)
 		currentArrangement[anweisung.to-1] = newStackAdded
 	}
+
+	return currentArrangement
+}
+
+func executeAnweisungPartTwo(currentArrangement []stack, anweisung rearrangement) []stack {
+	var crateStack []string
+
+	for i := 0; i < anweisung.amount; i++ {
+		crate, newStackRemoved := popStack(currentArrangement[anweisung.from-1])
+		currentArrangement[anweisung.from-1] = newStackRemoved
+		crateStack = append(crateStack, crate)
+	}
+	// Reverse-iterate trough slice
+	for i := range crateStack {
+		currentArrangement[anweisung.to-1] = appendStack(currentArrangement[anweisung.to-1], crateStack[len(crateStack)-1-i])
+	}
+
 	return currentArrangement
 }
 
@@ -97,7 +114,7 @@ func main() {
 	var rearrangementsArray []rearrangement = FormatFileInput(FileInput)
 
 	for _, anweisung := range rearrangementsArray {
-		currentArrangement = executeAnweisung(currentArrangement, anweisung)
+		currentArrangement = executeAnweisungPartTwo(currentArrangement, anweisung)
 	}
 
 	for _, stack := range currentArrangement {
