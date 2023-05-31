@@ -75,5 +75,7 @@ func main() {
 	var FileInput [][]string = ReturnInputFromFile("Day09/day09_input.txt")
 	MinMaxCoords := FindRanges(FileInput)
 
-	fmt.Printf("x_max: %v, x_min: %v, y_max: %v, y_min: %v", MinMaxCoords[0], MinMaxCoords[1], MinMaxCoords[2], MinMaxCoords[3])
+	fmt.Printf("x_max: %v, x_min: %v, y_max: %v, y_min: %v \n", MinMaxCoords[0], MinMaxCoords[1], MinMaxCoords[2], MinMaxCoords[3])
+	fmt.Printf("x: %v, y: %v", MinMaxCoords[0]-MinMaxCoords[1], MinMaxCoords[2]-MinMaxCoords[3])
+
 }
